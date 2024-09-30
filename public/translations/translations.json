@@ -1,0 +1,112 @@
+{
+  "en": {
+    "header": {
+      "logo": "FASONchik",
+      "menu_btn": "Menu",
+      "search_products": "Search for products",
+      "search_infos": "Product name, category, type...",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "drawer": {
+      "catalog": {
+        "title": "Catalog",
+        "categories": [
+          {
+            "title": "Cloth",
+            "subcategories": [
+              { "title": "T-shirts", "path": "/catalog/cloth/t-shirts" },
+              { "title": "Long-sleeves", "path": "/catalog/cloth/long-sleeves" },
+              { "title": "Hoodies", "path": "/catalog/cloth/hoodies" },
+              { "title": "Outerwear", "path": "/catalog/cloth/outerwear" }
+            ]
+          },
+          {
+            "title": "Accessories",
+            "subcategories": [
+              { "title": "Bags", "path": "/catalog/accessories/bags" },
+              { "title": "Hats", "path": "/catalog/accessories/hats" },
+              { "title": "Umbrellas", "path": "/catalog/accessories/umbrellas" }
+            ]
+          },
+          {
+            "title": "Souvenirs",
+            "subcategories": [
+              { "title": "Business Souvenirs", "path": "/catalog/souvenirs/business" },
+              { "title": "Promo Souvenirs", "path": "/catalog/souvenirs/promo" }
+            ]
+          },
+          {
+            "title": "Office",
+            "subcategories": [
+              { "title": "Notebooks", "path": "/catalog/office/notebooks" },
+              { "title": "Pens", "path": "/catalog/office/pens" }
+            ]
+          }
+        ]
+      },
+      "forCustomers": {
+        "title": "For Customers",
+        "items": [
+          { "title": "Blog", "path": "/blog" },
+          { "title": "About Us", "path": "/about-us" }
+        ]
+      }
+    }
+  },
+  "ru": {
+    "header": {
+      "logo": "ФАСОНчик",
+      "menu_btn": "Меню",
+      "search_products": "Поиск товаров",
+      "search_infos": "Название товара, категория, тип...",
+      "profile": "Профиль",
+      "logout": "Выйти"
+    },
+    "drawer": {
+      "catalog": {
+        "title": "Каталог",
+        "categories": [
+          {
+            "title": "Одежда",
+            "subcategories": [
+              { "title": "Футболки", "path": "/catalog/cloth/t-shirts" },
+              { "title": "Лонгсливы", "path": "/catalog/cloth/long-sleeves" },
+              { "title": "Худи", "path": "/catalog/cloth/hoodies" },
+              { "title": "Верхняя одежда", "path": "/catalog/cloth/outerwear" }
+            ]
+          },
+          {
+            "title": "Аксессуары",
+            "subcategories": [
+              { "title": "Сумки", "path": "/catalog/accessories/bags" },
+              { "title": "Головные уборы", "path": "/catalog/accessories/hats" },
+              { "title": "Зонты", "path": "/catalog/accessories/umbrellas" }
+            ]
+          },
+          {
+            "title": "Сувениры",
+            "subcategories": [
+              { "title": "Бизнес-сувениры", "path": "/catalog/souvenirs/business" },
+              { "title": "Промо-сувениры", "path": "/catalog/souvenirs/promo" }
+            ]
+          },
+          {
+            "title": "Канцелярия",
+            "subcategories": [
+              { "title": "Тетради", "path": "/catalog/office/notebooks" },
+              { "title": "Ручки", "path": "/catalog/office/pens" }
+            ]
+          }
+        ]
+      },
+      "forCustomers": {
+        "title": "Покупателям",
+        "items": [
+          { "title": "Блог", "path": "/blog" },
+          { "title": "О нас", "path": "/about-us" }
+        ]
+      }
+    }
+  }
+}

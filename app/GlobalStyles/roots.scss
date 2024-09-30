@@ -1,0 +1,51 @@
+:root {
+	--main-color: #b5b5b5;
+	--secondary-color: #FFF;
+	--secondary-color: #FFF;
+	--accent-color: orange;
+	--further-color: #FFF;
+
+	--main-font-color: #000000;
+	--secondary-font-color: #FFF;
+	--description-font-color: #FFF;
+	--further-font-color: #FFF;
+
+	--btn-color: #FFF;
+	// --btn-hover-color: darken(#FFF, 10%);
+	--btn-hover-color: #FFF;
+	--hover-color: #FFF;
+
+	--ff: "MontserratAlternates", sans-serif, Arial, -apple-system, "BlinkMacSystemFont", sans-serif, Helvetica, sans-serif;
+
+	--hairline: 100;
+	--thin: 200;
+	--light: 300;
+	--regular: 400;
+	--medium: 500;
+	--semi-bold: 600;
+	--bold: 700;
+	--extra-bold: 800;
+	--black: 900;
+
+	--ui-index--1: -1; /* для наползающих элементов в потоке */
+	--ui-index-1: 1; /* для наползающих элементов в потоке */
+	--ui-index-2: 2; /* для наползающих элементов в потоке */
+	--ui-index-3: 3; /* для масок */
+	--ui-index-4: 4; /* для сайдбаров */
+	--ui-index-5: 5; /* для модалок */
+	--ui-index-6: 6; /* дял элементов, перекрывающих все */
+	--ui-index-7: 7; /* дял элементов, перекрывающих все */
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}

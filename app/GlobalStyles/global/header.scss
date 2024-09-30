@@ -1,0 +1,177 @@
+%btn-icon {
+	width: 28px;
+	height: 28px;
+
+	display: block;
+
+	background: var(--accent-color);
+
+	@media (any-hover: hover) {
+		transition: background-color 0.2s ease-in-out;
+
+		&:hover {
+			background: red;
+		}
+	}
+}
+
+/* Header */
+.header {
+	position: absolute;
+	top: 40px;
+	left: 0;
+	right: 0;
+
+	transition: all .2s ease 0s;
+
+	// padding-top: 40px;
+
+	&--scroll {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
+	// .header__container
+	&__container {
+		position: relative;
+		z-index: 7;
+		// z-index: var(--ui-index--7);
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	// .header__burger
+	&__burger {
+		display: flex;
+		align-items: center;
+		column-gap: 12px;
+
+		&::before {
+			content: '';
+			@extend %btn-icon;
+			mask: url('/img/icons/burger.svg') no-repeat 50% 50%;
+		}
+	}
+
+	// .header__logo
+	&__logo {
+		flex: 1 1 auto;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		column-gap: 12px;
+
+		&::before {
+			content: '';
+			@extend %btn-icon;
+			height: 29px;
+			width: 31.26px;
+			mask: url('/img/logo.svg') no-repeat 50% 50%;
+		}
+	}
+
+	// .header__controls
+	&__controls {
+		display: flex;
+		align-items: center;
+
+		gap: 12px 26px;
+	}
+}
+
+.header-controls {
+
+	// .header-controls__item
+	&__item {}
+
+	// .header-controls__btn
+	&__btn {
+		@extend %btn-icon;
+
+		// .header-controls__btn--search
+		&--search {
+			mask: url('/img/icons/search.svg') no-repeat 50% 50%;
+		}
+
+		// .header-controls__btn--favorites
+		&--favorites {
+			mask: url('/img/icons/favorites.svg') no-repeat 50% 50%;
+		}
+
+		// .header-controls__btn--compare
+		&--compare {
+			mask: url('/img/icons/compare.svg') no-repeat 50% 50%;
+		}
+
+		// .header-controls__btn--cart
+		&--cart {
+			mask: url('/img/icons/cart.svg') no-repeat 50% 50%;
+		}
+
+		// .header-controls__btn--profile
+		&--profile {
+			mask: url('/img/icons/profile.svg') no-repeat 50% 50%;
+		}
+	}
+
+	// .header-controls__lang
+	&__lang {}
+}
+
+
+/* Drawer */
+.drawer {
+	z-index: 6;
+	position: fixed;
+	top: 0;
+	padding-top: calc((40px + 30px) + 30px);
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	transition: left 0.3s ease 0s;
+
+	&--open {
+		left: 0;
+	}
+
+	&--closed {
+		left: -100%;
+	}
+
+	&__container {
+		// width: 100%;
+	}
+
+	&__list {
+		// overflow: auto;
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: em(36, 10);
+		}
+	}
+
+	&__accordion {}
+}
+
+.drawer-accordion {
+
+	&__title {
+		font-size: 36px;
+	}
+
+	&__icon {}
+
+	&__content {}
+
+	&-list {}
+
+	&__sub-accordeon {}
+}
