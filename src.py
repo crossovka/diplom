@@ -25,7 +25,7 @@ def print_directory_structure(start_path, exclude_dirs=None, exclude_files=None)
 project_path = './'
 
 # Список папок и файлов для исключения
-exclude_dirs = ['node_modules', '.git', 'dist']
+exclude_dirs = ['node_modules', '.git', 'dist', '.next']
 exclude_files = ['README.md', '.env']
 
 print_directory_structure(project_path, exclude_dirs, exclude_files)

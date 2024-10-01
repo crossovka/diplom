@@ -1,6 +1,6 @@
 'use client';
 
-import { Hero } from '@/components/modules';
+import { Hero } from "@/components/modules/HomePage/Hero";
 
 const HomePage: React.FC = () => {
 	return (

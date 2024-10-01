@@ -4,10 +4,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
 import lang from './slices/lang/slice';
+import menu from './slices/menu/slice';
 
 export const store = configureStore({
 	reducer: {
 		lang,
+		menu
 	},
 });
 export type RootState = ReturnType<typeof store.getState>;
