@@ -1,7 +1,8 @@
 {
   "en": {
 		"common":{
-			"more": "More"
+			"more": "More",
+			"order_price": "Order price"
 		},
     "header": {
       "logo": "FASONchik",
@@ -68,7 +69,8 @@
   },
   "ru": {
 		"common":{
-			"more": "Ещё"
+			"more": "Ещё",
+			"order_price": "Цена заказа"
 		},
     "header": {
       "logo": "ФАСОНчик",

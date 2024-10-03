@@ -15,10 +15,10 @@ import { selectIsMenuOpen, selectIsCatalogOpen } from '@/redux/slices/menu/selec
 import { openSearchModal } from '@/redux/slices/modals/slice';
 
 // import { useState } from 'react';
-import { useLang } from '@/hooks/useLang';
+import { useLang } from '@/hooks/useLang'; 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-// import { CartPopup } from './CartPopup/CartPopup';
+import CartPopup from "./CartPopup/CartPopup";
 // import { HeaderProfile } from './HeaderProfile';
 import Menu from './Menu/Menu';
 
@@ -96,9 +96,9 @@ export const Header: React.FC = () => {
 									className="header-controls__btn header-controls__btn--compare"
 								/>
 							</li>
-							{/* <li className="header-controls__item">
+							<li className="header-controls__item">
 								<CartPopup />
-							</li> */}
+							</li>
 						</>
 					)}
 					{/* <li className="header-controls__item header-controls__item--profile">
