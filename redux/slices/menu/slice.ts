@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MenuState } from './types';
+
+export interface MenuState {
+	isMenuOpen: boolean
+	isCatalogOpen: boolean
+}
 
 export const initialState: MenuState = {
 	isMenuOpen: false,
@@ -12,6 +16,7 @@ const menuSlice = createSlice({
 	reducers: {
 		openMenu: (state) => {
 			state.isMenuOpen = true;
+			// TODO FIX вынести в ui в Handle функции закрыте? чтобы было только !boolean
 			state.isCatalogOpen = false; // Закрываем каталог при открытии меню
 		},
 		closeMenu: (state) => {

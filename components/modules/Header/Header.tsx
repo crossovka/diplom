@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 
-// import { useState } from 'react';
-
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/redux/store';
 
@@ -14,11 +12,14 @@ import { AllowedLangs } from '@/redux/slices/lang/types';
 import { closeCatalogMenu, toggleMenu } from '@/redux/slices/menu/slice';
 import { selectIsMenuOpen, selectIsCatalogOpen } from '@/redux/slices/menu/selectors';
 
+import { openSearchModal } from '@/redux/slices/modals/slice';
+
+// import { useState } from 'react';
 import { useLang } from '@/hooks/useLang';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-import { CartPopup } from './CartPopup/CartPopup';
-import { HeaderProfile } from './HeaderProfile';
+// import { CartPopup } from './CartPopup/CartPopup';
+// import { HeaderProfile } from './HeaderProfile';
 import Menu from './Menu/Menu';
 
 export const Header: React.FC = () => {
@@ -28,15 +29,15 @@ export const Header: React.FC = () => {
 	const isMenuOpen = useSelector(selectIsMenuOpen);
 	const isCatalogOpen = useSelector(selectIsCatalogOpen);
 
-  const handleToggleMenu = () => {
-    dispatch(toggleMenu());
-    dispatch(closeCatalogMenu()); // Закрываем каталог при открытии меню
-  };
+	const handleToggleMenu = () => {
+		dispatch(toggleMenu());
+		dispatch(closeCatalogMenu()); // Закрываем каталог при открытии меню
+	};
 
 	const { lang, translations } = useLang();
 
 	const isMedia991 = useMediaQuery(991);
-	const isAuth = true;
+	// const isAuth = true;
 
 	// TODO : save to local storage и проверку эту тоже надо нет для сред где нет local storage?
 	const toggleLang = () => {
@@ -47,19 +48,22 @@ export const Header: React.FC = () => {
 	};
 
 	const handleOpenSearchModal = () => {
-		console.log('handleOpenSearchModal');
-		// openSearchModal()
+		dispatch(openSearchModal());
 		// addOverflowHiddenToBody()
 	};
 
 	return (
-		<header className={`header ${isMenuOpen ? 'header--menu-open' : ''} ${isCatalogOpen ? 'header--catalog-open' : ''}`}>
+		<header
+		// TODO нормально что после шаблонной строки 2 пробела?
+		// header  
+			className={`header ${isMenuOpen ? 'header--menu-open' : ''} ${isCatalogOpen ? 'header--catalog-open' : ''}`}
+		>
 			<div className="container header__container">
-				{!isMedia991 &&
+				{!isMedia991 && (
 					<button className="header__burger" onClick={handleToggleMenu}>
 						{translations.header.menu_btn}
 					</button>
-				}
+				)}
 
 				<Link className="header__logo" href="/">
 					<h1>{translations.header.logo}</h1>
@@ -71,13 +75,13 @@ export const Header: React.FC = () => {
 							{currentLang}
 						</button>
 					</li>
-					{/* <li className="header-controls__item">
+					<li className="header-controls__item">
 						<button
-							// TODO aria-label потому что картинок нет нужно добавить будет
+							// TODO aria-label потому что картинок нет нужно добавить будет для таких кнопок ?
 							className="header-controls__btn header-controls__btn--search"
 							onClick={handleOpenSearchModal}
 						/>
-					</li> */}
+					</li>
 					{!isMedia991 && (
 						<>
 							<li className="header-controls__item">
@@ -102,7 +106,7 @@ export const Header: React.FC = () => {
 					</li> */}
 				</ul>
 			</div>
-			<Menu isMenuOpen={isMenuOpen} />
+			<Menu />
 		</header>
 	);
 };

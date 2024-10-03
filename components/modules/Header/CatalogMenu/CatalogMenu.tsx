@@ -22,10 +22,7 @@ const CatalogMenu = () => {
 	const dispatch = useAppDispatch();
 	const isCatalogOpen = useSelector(selectIsCatalogOpen);
 	const { translations } = useLang();
-	const { itemVariants, sideVariants, popupZIndex } = useMenuAnimation(
-		2,
-		isCatalogOpen
-	);
+	const { itemVariants, sideVariants, popupZIndex } = useMenuAnimation(2, isCatalogOpen);
 	const isMedia450 = useMediaQuery(450);
 	const [activeListId, setActiveListId] = useState<number | null>(null); // Добавил состояние для активного списка
 
@@ -124,7 +121,7 @@ const CatalogMenu = () => {
 	];
 
 	return (
-		<div className="catalog-menu" style={{ zIndex: popupZIndex }}>
+		<div className="catalog-menu">
 			<AnimatePresence>
 				{isCatalogOpen && (
 					<motion.aside

@@ -1,7 +1,7 @@
 
 //========================================================================================================================================================
 .catalog-menu {
-	// z-index: var(--ui-index-2);
+	z-index: var(--ui-index-4);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -31,9 +31,9 @@
 	width: 24px;
 	height: 24px;
 
-	// background-image: url(/img/close-small.svg);
-	// background-repeat: no-repeat;
-	// background-position: center center;
+	background-image: url(/img/icons/close.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 .catalog-menu__title {

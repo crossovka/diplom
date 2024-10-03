@@ -1,7 +1,7 @@
-export interface IMenuProps {
-	isMenuOpen: boolean;
-	toggleOpenMenu: () => void;
-}
+// export interface IMenuProps {
+// 	isMenuOpen: boolean;
+// 	toggleOpenMenu: () => void;
+// }
 
 export interface IAccordionProps {
 	children: React.ReactNode;
@@ -23,4 +23,8 @@ export interface ICatalogMenuButtonProps {
 	name: string
 	isActive: boolean
 	handler: VoidFunction
+}
+
+export interface ISearchModal {
+	handleCloseSearchModal: VoidFunction
 }

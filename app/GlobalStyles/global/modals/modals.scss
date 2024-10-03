@@ -1,0 +1,23 @@
+@import './searchModal.scss';
+
+// TODO сделать чтобы для всех элементов оканчивающися на - overlay было
+.search-overlay {
+	z-index: var(--ui-index-6);
+
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	height: 100%;
+	width: 100%;
+
+	background: #16181b;
+
+	opacity: 0;
+	visibility: hidden;
+
+	&--active {
+		opacity: 0.6;
+		visibility: visible;
+	}
+}

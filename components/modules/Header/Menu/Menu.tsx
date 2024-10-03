@@ -3,31 +3,36 @@
 // TODO разделить на компоненты- секции
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+import { selectIsMenuOpen } from '@/redux/slices/menu/selectors';
+
+import { useState } from 'react';
 import { useLang } from '@/hooks/useLang';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-import { IMenuProps } from '@/types/modules';
+// import { IMenuProps } from '@/types/modules';
 
 import Accordion from '../../Accordion';
 import BuyersListItems from './BuyersListItems';
 import ContactsListItems from './ContactsListItems';
 import MenuLinkItem from './MenuLinkItem';
 
-const Menu = ({ isMenuOpen, toggleOpenMenu }: IMenuProps) => {
+const Menu = () => {
 	const [activeListId, setActiveListId] = useState(0);
 	const { translations } = useLang();
 	const pathname = usePathname();
 	const isMedia991 = useMediaQuery(991);
 	const isMedia640 = useMediaQuery(640);
 
+	const isMenuOpen = useSelector(selectIsMenuOpen);
+
 	const handleShowCatalogList = () => setActiveListId(1);
 	const handleShowBuyersList = () => setActiveListId(2);
 	const handleShowContactsList = () => setActiveListId(3);
 
 	const handleCloseMenu = () => {
-		toggleOpenMenu();
+		// TODO закрытие меню в пропс передать
 		setActiveListId(0);
 	};
 

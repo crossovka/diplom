@@ -125,20 +125,20 @@ body {
 // }
 
 // Подключение базовых стилей, шаблонов (заготовок) и вспомогательных  классов
-// Для подключения/отключения конкретных стилей смотри base.scss
 @import "base";
 
 // Подключение стилей общих элементов проекта
 @import "common";
 
-// Подключение стилей отдельных блоков
 @import "global/header.scss";
 @import 'global/menu.scss';
 @import "global/mobileNavBar.scss";
 @import "global/CatalogMenu.scss";
 
-// @import "footer";
+@import "global/modals/modals.scss";
+@import "global/footer.scss";
 
+// Подключение стилей отдельных блоков
 @import "blocks/accordion.scss";
 
 // Подключение стилей отдельных страниц
