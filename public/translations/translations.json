@@ -2,7 +2,8 @@
   "en": {
 		"common":{
 			"more": "More",
-			"order_price": "Order price"
+			"order_price": "Order price",
+			"all_link": "All"
 		},
     "header": {
       "logo": "FASONchik",
@@ -65,12 +66,22 @@
       "privacy_policy": "Privacy policy",
       "watched_products": "Watched products",
       "collection_products": "Products by Collection"
-    }
+    },
+		"homePage": {
+			"hero": {
+				"title": "Hero section title",
+				"subtitle": "Subtitle"
+			},
+			"categories": {
+				"title": "Categories"
+			}
+		}
   },
   "ru": {
 		"common":{
 			"more": "Ещё",
-			"order_price": "Цена заказа"
+			"order_price": "Цена заказа",
+			"all_link": "Все"
 		},
     "header": {
       "logo": "ФАСОНчик",
@@ -133,6 +144,15 @@
       "privacy_policy": "Политика конфиденциальности",
       "watched_products": "Просмотренные товары",
       "collection_products": "Товары по коллекции"
-    }
+    },
+		"homePage": {
+			"hero": {
+				"title": "Заголовок хиро секции",
+				"subtitle": "Подзаголовок"
+			},
+			"categories": {
+				"title": "Категории"
+			}
+		}
   }
 }

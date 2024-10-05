@@ -35,6 +35,22 @@
 	--ui-index-5: 5; /* для модалок */
 	--ui-index-6: 6; /* дял элементов, перекрывающих все */
 	--ui-index-7: 7; /* дял элементов, перекрывающих все */
+
+	--main-section-paddings: 70px;
+	@media (max-width: em(700)){
+		--main-section-paddings: 20px;
+	}
+	// @media (max-width:$tablet){
+	// 	--main-section-paddings: 50px;
+	// }
+	// @media (max-width:$mobile){
+	// 	--main-section-paddings: 40px;
+	// }
+	// @media (max-width:$mobileSmall){
+	// 	--main-section-paddings: 30px;
+	// }
+	// чтобы слепить 2 секции
+	// margin-top: calc(var(--main-section-paddings) * -2)
 }
 
 @media (prefers-color-scheme: dark) {

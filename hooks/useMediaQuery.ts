@@ -7,6 +7,9 @@ const useWindowWidth = () => {
 	const handleResize = () => setWindowWidth(getWindowWidth())
 
 	useEffect(() => {
+		// TODO useWhyDidYouUpdate from Ahooks сделать к примеру в шапке и проверить
+		// ререндер может быть из-за этого хука очень большой
+		// Debounce может?
 		window.addEventListener('resize', handleResize, true)
 
 		return () => window.removeEventListener('resize', handleResize, true)

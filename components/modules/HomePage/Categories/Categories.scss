@@ -1,0 +1,97 @@
+.categories {
+	padding: var(--main-section-paddings) 0;
+
+	&__container {}
+
+	&__inner {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+		gap: 40px;
+		grid-auto-rows: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+	}
+}
+
+.categories-inner {
+
+	// .categories-inner__img
+	&__img {
+		padding-bottom: 65%;
+
+		transition: border-radius .2s ease-in-out;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			z-index: var(--ui-index-2);
+
+			position: absolute;
+			inset: 0;
+
+			height: 100%;
+			width: 100%;
+			background-color: rgba(16, 24, 40, 0.55);
+
+			opacity: 0;
+			transition: opacity .2s ease-in-out;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				border-radius: 26px 0 0 0;
+
+				.categories-inner__img-label {
+					opacity: 1;
+				}
+
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+
+		// TODO до того как картинка подгрузилась не очень выглядит :has img-loading обработать
+		&:first-child {
+			border-radius: 26px 0 0 0;
+
+			.categories-inner__img-label {
+				opacity: 1;
+			}
+
+			&::before {
+				opacity: 1;
+				background: linear-gradient(180deg, rgba(16, 24, 40, 0) 41.43%, rgba(16, 24, 40, .8) 109.57%);
+			}
+		}
+
+		@media (any-hover: none) {
+			border-radius: 26px 0 0 0;
+
+			.categories-inner__img-label {
+				opacity: 1;
+			}
+
+			&::before {
+				opacity: 1;
+				background: linear-gradient(180deg, rgba(16, 24, 40, 0) 41.43%, rgba(16, 24, 40, .8) 109.57%);
+			}
+		}
+
+		// .categories-inner__img-label
+		&-label {
+			z-index: var(--ui-index-3);
+
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			padding: 16px 32px;
+			border-radius: 26px 0 26px 0;
+
+			background-color: var(--secondary-color);
+
+			opacity: 0;
+			transition: opacity .2s ease-in-out;
+		}
+	}
+}
