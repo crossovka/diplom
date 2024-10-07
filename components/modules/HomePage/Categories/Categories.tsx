@@ -15,8 +15,7 @@ import './Categories.scss';
 
 const Categories: React.FC = () => {
 	const { translations } = useLang();
-	const { handleLoadingImageComplete, imgSpinner } = useImagePreloader();
-	const imgSpinnerClass = imgSpinner ? 'img-loading' : '';
+	const { handleLoadingImageComplete, loadingImageClass } = useImagePreloader();
 	const isMedia600 = useMediaQuery(600);
 
 	// TODO получать также нормально с бэка
@@ -47,13 +46,14 @@ const Categories: React.FC = () => {
 		},
 	];
 
+	console.log(loadingImageClass)
 	return (
 		<section className="categories">
 			<div className="categories__container">
 				<div className="heading heading--with-link">
-					<h3 className="heading__title h3">
+					<h2 className="heading__title h2">
 						{translations.homePage.categories.title}
-					</h3>
+					</h2>
 					<div className="heading__link">
 						<AllLink />
 					</div>
@@ -66,15 +66,17 @@ const Categories: React.FC = () => {
 							<Link
 								key={index}
 								href={image.href}
-								className={`-ibg categories-inner__img ${imgSpinnerClass}`}
+								className={`-ibg categories-inner__img`}
 							>
 								<Image
 									src={image.src}
 									alt={image.alt}
-									className="transition-opacity opacity-0 duration"
+									className={`${loadingImageClass}`}
 									onLoad={handleLoadingImageComplete}
 								/>
-								<span className="categories-inner__img-label">{image.title}</span>
+								<span className="categories-inner__img-label">
+									{image.title}
+								</span>
 							</Link>
 						))
 					) : (

@@ -74,6 +74,12 @@
 			},
 			"categories": {
 				"title": "Categories"
+			},
+			"newGoods": {
+				"title": "New products"
+			},
+			"bestSellers": {
+				"title": "Best Sellers"
 			}
 		}
   },
@@ -152,6 +158,12 @@
 			},
 			"categories": {
 				"title": "Категории"
+			},
+			"newGoods": {
+				"title": "Новые поступления"
+			},
+			"bestSellers": {
+				"title": "Хиты продаж"
 			}
 		}
   }

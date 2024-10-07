@@ -3,6 +3,8 @@
 // 	toggleOpenMenu: () => void;
 // }
 
+import { IProduct } from "./common";
+
 export interface IAccordionProps {
 	children: React.ReactNode;
 	title: string | JSX.Element;
@@ -27,4 +29,9 @@ export interface ICatalogMenuButtonProps {
 
 export interface ISearchModal {
 	handleCloseSearchModal: VoidFunction
+}
+
+export interface IProductsListItemProps {
+	item: IProduct
+	title?: string
 }

@@ -4,7 +4,7 @@ import { useLang } from "@/hooks/useLang";
 
 import styles from "./Hero.module.scss";
 
-export const Hero: React.FC = () => {
+const Hero: React.FC = () => {
 	const {translations} = useLang();
 
 	return (
@@ -15,3 +15,5 @@ export const Hero: React.FC = () => {
 		</section>
 	);
 };
+
+export default Hero;
