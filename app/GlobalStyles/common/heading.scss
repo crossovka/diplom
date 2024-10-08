@@ -1,7 +1,13 @@
 .heading {
+	display: flex;
+	justify-content: space-between;
+	
 	&--with-link {}
-
-	.heading__title {}
+	
+	@extend .content-field;
+	.heading__title {
+		@extend .h2;
+	}
 
 	.heading__link {}
 }

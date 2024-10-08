@@ -7,7 +7,7 @@ import { useLang } from '@/hooks/useLang';
 import useImagePreloader from '@/hooks/useImagePreloader';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-import AllLink from '@/components/elements/AllLink';
+import AllLink from '@/components/elements/AllLink/AllLink';
 
 import img1 from '@/public/img/categories/img_1.png';
 

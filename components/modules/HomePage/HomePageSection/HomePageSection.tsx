@@ -1,11 +1,11 @@
-import AllLink from '@/components/elements/AllLink';
+import AllLink from '@/components/elements/AllLink/AllLink';
 import ProductsListItem from '@/components/modules/ProductsListItem/ProductsListItem';
 
 import { IMainPageSectionProps } from '@/types/homePage';
 import { HomePageSectionSkeleton } from './Skeleton';
 
 const HomePageSection = ({ title, goods, isLoading }: IMainPageSectionProps) => (
-	<div className="__container" style={{padding: '50px 0'}}>
+	<div className="__container" style={{paddingTop: '50px' ,paddingBottom: '50px'}}>
 		<div className="heading heading--with-link">
 			<h2 className="heading__title h2">{title}</h2>
 			<div className="heading__link">
@@ -41,7 +41,7 @@ const HomePageSection = ({ title, goods, isLoading }: IMainPageSectionProps) => 
 				}}
 			>
 				{goods.map((item) => (
-					<ProductsListItem key={item._id} item={item} title={item.name} />
+					<ProductsListItem key={item._id} item={item} title={title} />
 				))}
 			</ul>
 		) : (
