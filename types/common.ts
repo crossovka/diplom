@@ -18,19 +18,7 @@ export interface IProduct {
 	errorMessage?: string
 }
 
-export interface ISizes {
-	s: boolean
-	l: boolean
-	m: boolean
-	xl: boolean
-	xxl: boolean
-}
-
-export interface ISelectedSizes {
-	sizes: ISizes
-	type: string
-	className?: string
-}
+// const allowedCompositions = ['cotton', 'synthetics', 'polyester'];
 
 export interface IGetGeolocation {
 	lat: number

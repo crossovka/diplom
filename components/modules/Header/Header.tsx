@@ -10,15 +10,18 @@ import { selectLang } from '@/redux/slices/lang/selectors';
 import { AllowedLangs } from '@/redux/slices/lang/types';
 
 import { closeCatalogMenu, toggleMenu } from '@/redux/slices/menu/slice';
-import { selectIsMenuOpen, selectIsCatalogOpen } from '@/redux/slices/menu/selectors';
+import {
+	selectIsMenuOpen,
+	selectIsCatalogOpen,
+} from '@/redux/slices/menu/selectors';
 
 import { openSearchModal } from '@/redux/slices/modals/slice';
 
 // import { useState } from 'react';
-import { useLang } from '@/hooks/useLang'; 
+import { useLang } from '@/hooks/useLang';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-import CartPopup from "./CartPopup/CartPopup";
+import CartPopup from './CartPopup/CartPopup';
 // import { HeaderProfile } from './HeaderProfile';
 import Menu from './Menu/Menu';
 
@@ -42,21 +45,24 @@ export const Header: React.FC = () => {
 	// TODO : save to local storage и проверку эту тоже надо нет для сред где нет local storage?
 	const toggleLang = () => {
 		if (typeof window === 'undefined') return;
-		const newLang = lang === AllowedLangs.EN ? AllowedLangs.RU : AllowedLangs.EN;
+		const newLang =
+			lang === AllowedLangs.EN ? AllowedLangs.RU : AllowedLangs.EN;
 		dispatch(setLang(newLang));
 		localStorage.setItem('lang', JSON.stringify(newLang));
 	};
 
 	const handleOpenSearchModal = () => {
 		dispatch(openSearchModal());
-		// addOverflowHiddenToBody()
+		// addOverflowHiddenToHtml()
 	};
 
 	return (
 		<header
-		// TODO нормально что после шаблонной строки 2 пробела?
-		// header  
-			className={`header ${isMenuOpen ? 'header--menu-open' : ''} ${isCatalogOpen ? 'header--catalog-open' : ''}`}
+			// TODO нормально что после шаблонной строки 2 пробела?
+			// header
+			className={`header ${isMenuOpen ? 'header--menu-open' : ''} ${
+				isCatalogOpen ? 'header--catalog-open' : ''
+			}`}
 		>
 			<div className="container header__container">
 				{!isMedia991 && (

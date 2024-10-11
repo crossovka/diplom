@@ -11,3 +11,8 @@ export interface IProductAvailableProps {
 	vendorCode: string
 	inStock: number
 }
+
+export interface IProductInfoLabelProps {
+	color: string
+	className?: string
+}

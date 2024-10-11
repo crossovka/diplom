@@ -1,0 +1,34 @@
+.quick-view-modal {
+	z-index: var(--ui-index-7);
+
+	position: fixed;
+	top: 50px;
+	left: 50%;
+
+	height: 570px;
+	width: 95%;
+	max-width: 850px;
+
+	background-color: #333A47;
+	padding: 24px;
+
+	transform: translateX(-50%);
+
+	&__close {
+		// position: absolute;
+		top: 24px;
+		right: 24px;
+
+		height: 24px;
+		width: 24px;
+
+		@media (max-width: 590px) {
+			top: 12px;
+			right: 12px;
+		}
+
+		background-image: url(/img/icons/close.svg);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}

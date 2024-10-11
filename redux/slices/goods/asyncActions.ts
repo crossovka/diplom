@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 
 import api from '@/api/apiInstance';
 // import { handleShowSizeTable } from '@/lib/utils/common'
-// import { IProduct, IProducts, ILoadOneProduct, ILoadProductsByFilter, ILoadWatchedProducts } from './types';
+import { IProduct, IProducts, ILoadOneProduct, ILoadProductsByFilter, ILoadWatchedProducts } from './types';
 
 // Асинхронные экшены для взаимодействия с API
 
@@ -20,31 +20,31 @@ import api from '@/api/apiInstance';
 // 	}
 // );
 
-// export const loadOneProduct = createAsyncThunk(
-// 	'goods/loadOneProduct',
-// 	async ({ productId, category, setSpinner, withShowingSizeTable }: ILoadOneProduct, thunkAPI) => {
-// 		try {
-// 			setSpinner && setSpinner(true);
-// 			const { data } = await api.post('/api/goods/one', { productId, category });
+export const loadOneProduct = createAsyncThunk(
+	'goods/loadOneProduct',
+	async ({ productId, category, setSpinner, withShowingSizeTable }: ILoadOneProduct, thunkAPI) => {
+		try {
+			// setSpinner && setSpinner(true);
+			const { data } = await api.post('/api/goods/one', { productId, category });
 
-// 			if (withShowingSizeTable) {
-// 				// handleShowSizeTable — функционал для показа таблицы размеров
-// 				handleShowSizeTable(data.productItem);
-// 			}
+			if (withShowingSizeTable) {
+				// handleShowSizeTable — функционал для показа таблицы размеров
+				// handleShowSizeTable(data.productItem);
+			}
 
-// 			if (data?.message === 'Wrong product id') {
-// 				return { productItem: { errorMessage: 'Wrong product id' } };
-// 			}
+			if (data?.message === 'Wrong product id') {
+				return { productItem: { errorMessage: 'Wrong product id' } };
+			}
 
-// 			return data;
-// 		} catch (error) {
-// 			toast.error((error as Error).message);
-// 			return thunkAPI.rejectWithValue(error.message);
-// 		} finally {
-// 			setSpinner && setSpinner(false);
-// 		}
-// 	}
-// );
+			return data;
+		} catch (error) {
+			toast.error((error as Error).message);
+			return thunkAPI.rejectWithValue(error.message);
+		} finally {
+			// setSpinner && setSpinner(false);
+		}
+	}
+);
 
 // export const loadProductsByFilter = createAsyncThunk(
 // 	'goods/loadProductsByFilter',

@@ -1,19 +1,26 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { useEffect } from 'react';
+import { useAppDispatch } from '@/redux/store';
+import { openQuickViewModal } from '@/redux/slices/modals/slice';
+
+import { setCurrentProduct } from '@/redux/slices/goods/slice';
+
+// import { useEffect } from 'react';
 import { useLang } from '@/hooks/useLang';
 import useImagePreloader from '@/hooks/useImagePreloader';
 
-import { formatPrice } from '@/lib/utils/common';
+import { addOverflowHiddenToHtml, formatPrice } from '@/lib/utils/common';
 
-import ProductLabel from './Productlabel';
-import ProductAvailable from '@/components/elements/ProductAvailable/ProductAvailable';
+import ProductLabel from './ProductLabel';
+import ProductAvailable from './ProductAvailable';
 import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn';
 
 import { IProductsListItemProps } from '@/types/modules';
 
 const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
+	const dispatch = useAppDispatch();
+
 	const { handleLoadingImageComplete, loadingImageClass } = useImagePreloader();
 	const { translations } = useLang();
 
@@ -23,20 +30,20 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
 	// Тайтл не обязательный проп. Если он передаётся то мы на главной в секции только новинок или только бестселлеров
 	const isTitleForNew = title === translations.homePage.newGoods.title;
 
-	// const handleShowQuickViewModal = () => {
-	//   addOverflowHiddenToBody()
-	//   showQuickViewModal()
-	//   setCurrentProduct(item)
-	// }
+	const handleShowQuickViewModal = () => {
+		addOverflowHiddenToHtml()
+		dispatch(openQuickViewModal());
+		dispatch(setCurrentProduct(item));
+	};
 
 	// const addToCart = () => {
 	//   setIsAddToFavorites(false)
 	//   addProductToCartBySizeTable(item, setAddToCartSpinner, 1)
 	// }
 
-	useEffect(() => {
-		console.log(item);
-	}, [item]);
+	// useEffect(() => {
+	// 	console.log(item);
+	// }, [item]);
 
 	return (
 		<li>
@@ -45,9 +52,19 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
 				<ProductLabel isBestseller={item.isBestseller} isNew={item.isNew} />
 			)}
 			<div>
-			<ProductItemActionBtn text={translations.product.add_to_favorites} iconClass={'--favorites'}/>
-			<ProductItemActionBtn text={translations.product.add_to_comparison} iconClass={'--comparison'}/>
-			<ProductItemActionBtn text={translations.product.quick_view} iconClass={'--quick-view'}/>
+				{/* <ProductItemActionBtn
+					text={translations.product.add_to_favorites}
+					iconClass={'--favorites'}
+				/>
+				<ProductItemActionBtn
+					text={translations.product.add_to_comparison}
+					iconClass={'--comparison'}
+				/> */}
+				<ProductItemActionBtn
+					text={translations.product.quick_view}
+					iconClass={'--quick-view'}
+					callback={handleShowQuickViewModal}
+				/>
 			</div>
 			<Link
 				href={`/catalog/${item.category}/${item._id}`}
@@ -82,6 +99,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
 			// className={}
 			// onClick={addToCart}
 			>
+				{/* // TODO ну если даже всего один размер писало мол добавлено XL или если это очки к примеру то писало добавлено  */}
 				{translations.product.to_cart}
 			</button>
 			{/* )} */}

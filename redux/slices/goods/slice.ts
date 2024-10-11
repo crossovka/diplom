@@ -23,6 +23,16 @@ const goodsSlice = createSlice({
 		resetProductBySearch(state) {
 			state.productsBySearch = { count: 0, items: [] };
 		},
+		// Либо через сет стейт либо через запрос с бэка? 2 резжима получения
+		// товара либо через лоад он продукт ибо не всегда есть возможность со стейта получать
+		setCurrentProduct: (state, action) => {
+			state.currentProduct = action.payload
+		},
+		// если только в модале то логично очищать но я могу оставить?
+		// оно же в других частях будет использоавться как я и описал выше?
+		// resetCurrentProduct(state) {
+    //   state.currentProduct = {} as IProduct; // или null, если это подходит
+    // },
 	},
 	extraReducers: (builder) => {
 		builder
@@ -68,5 +78,5 @@ const goodsSlice = createSlice({
 	},
 });
 
-export const { resetProductBySearch } = goodsSlice.actions;
+export const { setCurrentProduct, resetProductBySearch } = goodsSlice.actions;
 export default goodsSlice.reducer;

@@ -1,28 +1,55 @@
 {
-  "en": {
-		"common":{
+	"en": {
+		"common": {
 			"more": "More",
 			"order_price": "Order price",
 			"all_link": "All"
 		},
-    "header": {
-      "logo": "FASONchik",
-      "menu_btn": "Menu",
-      "search_products": "Search for products",
-      "search_infos": "Product name, category, type...",
-      "profile": "Profile",
-      "logout": "Logout"
-    },
-    "menu": {
-      "catalog": {
-        "title": "Catalog",
-        "categories": [
-          { "title": "Cloth", "subcategories": ["T-shirts", "Long-sleeves", "Hoodies", "Outerwear"] },
-          { "title": "Accessories", "subcategories": ["Bags", "Hats", "Umbrellas"] },
-					{ "title": "Souvenirs", "subcategories": ["Business-souvenirs", "Promotional-souvenirs"] },
-					{ "title": "Stationery", "subcategories": ["Pens", "Notebooks"] }
-        ]
-      },
+		"header": {
+			"logo": "FASONchik",
+			"menu_btn": "Menu",
+			"search_products": "Search for products",
+			"search_infos": "Product name, category, type...",
+			"profile": "Profile",
+			"logout": "Logout"
+		},
+		"menu": {
+			"catalog": {
+				"title": "Catalog",
+				"categories": [
+					{
+						"title": "Cloth",
+						"subcategories": [
+							"T-shirts",
+							"Long-sleeves",
+							"Hoodies",
+							"Outerwear"
+						]
+					},
+					{
+						"title": "Accessories",
+						"subcategories": [
+							"Bags",
+							"Hats",
+							"Umbrellas"
+						]
+					},
+					{
+						"title": "Souvenirs",
+						"subcategories": [
+							"Business-souvenirs",
+							"Promotional-souvenirs"
+						]
+					},
+					{
+						"title": "Stationery",
+						"subcategories": [
+							"Pens",
+							"Notebooks"
+						]
+					}
+				]
+			},
 			"buyers": {
 				"title": "For buyers",
 				"about": "About us",
@@ -30,43 +57,43 @@
 				"shipping": "Shipping and payment",
 				"returns": "Purchase returns"
 			},
-			"contacts":{
+			"contacts": {
 				"title": "Contacts",
 				"tg": "Telegram",
 				"vk": "VKontakte"
 			}
-    },
+		},
 		"comparison": {
-      "umbrella": "Umbrellas",
-      "bags": "Bags",
-      "outerwear": "Outerwear",
-      "long-sleeves": "Long-sleeves",
-      "headdress": "Headdress",
-      "hoodie": "Hoodie",
-      "business-souvenirs": "Business-souvenirs",
-      "promotional-souvenirs": "Promotional-souvenirs",
-      "pen": "Pens",
-      "notebook": "Notebooks",
-      "t-shirts": "T-shirts",
-      "main_heading": "Comparison"
-    },
+			"umbrella": "Umbrellas",
+			"bags": "Bags",
+			"outerwear": "Outerwear",
+			"long-sleeves": "Long-sleeves",
+			"headdress": "Headdress",
+			"hoodie": "Hoodie",
+			"business-souvenirs": "Business-souvenirs",
+			"promotional-souvenirs": "Promotional-souvenirs",
+			"pen": "Pens",
+			"notebook": "Notebooks",
+			"t-shirts": "T-shirts",
+			"main_heading": "Comparison"
+		},
 		"breadcrumbs": {
-      "main": "Main",
-      "comparison": "Comparison",
-      "cart": "Cart",
-      "favorites": "Favorites",
-      "catalog": "Catalog",
-      "profile": "Profile",
-      "cloth": "Cloth",
-      "accessories": "Accessories",
-      "office": "Office",
-      "souvenirs": "Souvenirs",
-      "order": "Placing an order",
-      "personal_data_policy": "Data processing policy",
-      "privacy_policy": "Privacy policy",
-      "watched_products": "Watched products",
-      "collection_products": "Products by Collection"
-    },
+			"main": "Main",
+			"comparison": "Comparison",
+			"cart": "Cart",
+			"favorites": "Favorites",
+			"catalog": "Catalog",
+			"profile": "Profile",
+			"cloth": "Cloth",
+			"accessories": "Accessories",
+			"office": "Office",
+			"souvenirs": "Souvenirs",
+			"order": "Placing an order",
+			"personal_data_policy": "Data processing policy",
+			"privacy_policy": "Privacy policy",
+			"watched_products": "Watched products",
+			"collection_products": "Products by Collection"
+		},
 		"homePage": {
 			"hero": {
 				"title": "Hero section title",
@@ -83,53 +110,104 @@
 			}
 		},
 		"product": {
-      "available": "Available",
-      "not_available": "Not available",
-      "vendor_code": "Vendor",
-      "size_table": "Size table",
-      "count": "Count",
-      "to_cart": "To cart",
-      "to_favorite": "To favorite",
-      "description": "Description",
-      "characteristics": "Characteristics",
-      "collection_goods": "Products from the collection",
-      "watched": "You watched",
-      "add_to_favorites": "Add to favorites",
-      "add_to_comparison": "Add to comparison",
-      "quick_view": "Quick view",
-      "total_in_cart": "Total in cart",
-      "more": "More information about the product",
-      "composition": "Composition",
-      "in_cart": "Added",
-      "share": "Share",
+			"available": "Available",
+			"not_available": "Not available",
+			"vendor_code": "Vendor",
+			"size_table": "Size table",
+			"count": "Count",
+			"to_cart": "To cart",
+			"to_favorite": "To favorite",
+			"description": "Description",
+			"characteristics": "Characteristics",
+			"collection_goods": "Products from the collection",
+			"watched": "You watched",
+			"add_to_favorites": "Add to favorites",
+			"add_to_comparison": "Add to comparison",
+			"quick_view": "Quick view",
+			"total_in_cart": "Total in cart",
+			"more": "More information about the product",
+			"in_cart": "Added",
+			"share": "Share",
 			"is_new": "New",
-      "is_bestseller": "Bestseller"
-    }
-  },
-  "ru": {
-		"common":{
+			"is_bestseller": "Bestseller",
+			"color": "color",
+			"colors": {
+				"purpure": "Purpure",
+				"orange": "Orange",
+				"yellow": "Yellow",
+				"black": "Black",
+				"white": "White"
+			},
+			"composition": "Composition",
+			"compositions": {
+				"cotton": "cotton",
+				"synthetics": "synthetics",
+				"polyester": "polyester"
+			},
+			"size": "Size"
+		},
+		"size_table": {
+			"head_circumference": "Head circumference, cm",
+			"size": "Size",
+			"russian_size": "Russian size",
+			"manufacturer_size": "Manufacturer size",
+			"chest_circumference": "Chest circumference, cm",
+			"waist_circumference": "Waist circumference, cm",
+			"hip_circumference": "Hip circumference, cm",
+			"title": "Size table"
+		}
+	},
+	"ru": {
+		"common": {
 			"more": "Ещё",
 			"order_price": "Цена заказа",
 			"all_link": "Все"
 		},
-    "header": {
-      "logo": "ФАСОНчик",
-      "menu_btn": "Меню",
-      "search_products": "Поиск товаров",
-      "search_infos": "Название товара, категория, тип...",
-      "profile": "Профиль",
-      "logout": "Выйти"
-    },
-    "menu": {
-      "catalog": {
-        "title": "Каталог",
-        "categories": [
-          { "title": "Одежда", "subcategories": ["Футболки", "Лонгсливы", "Худи", "Верхняя одежда"] },
-          { "title": "Аксессуары", "subcategories": ["Сумки", "Головные уборы", "Зонты"] },
-					{ "title": "Сувениры", "subcategories": ["Бизнес-сувениры", "Промо-сувениры"] },
-					{ "title": "Канцтовары", "subcategories": ["Ручки", "Ноутбуки"] }
-        ]
-      },
+		"header": {
+			"logo": "ФАСОНчик",
+			"menu_btn": "Меню",
+			"search_products": "Поиск товаров",
+			"search_infos": "Название товара, категория, тип...",
+			"profile": "Профиль",
+			"logout": "Выйти"
+		},
+		"menu": {
+			"catalog": {
+				"title": "Каталог",
+				"categories": [
+					{
+						"title": "Одежда",
+						"subcategories": [
+							"Футболки",
+							"Лонгсливы",
+							"Худи",
+							"Верхняя одежда"
+						]
+					},
+					{
+						"title": "Аксессуары",
+						"subcategories": [
+							"Сумки",
+							"Головные уборы",
+							"Зонты"
+						]
+					},
+					{
+						"title": "Сувениры",
+						"subcategories": [
+							"Бизнес-сувениры",
+							"Промо-сувениры"
+						]
+					},
+					{
+						"title": "Канцтовары",
+						"subcategories": [
+							"Ручки",
+							"Ноутбуки"
+						]
+					}
+				]
+			},
 			"buyers": {
 				"title": "Покупателям",
 				"about": "О нас",
@@ -137,43 +215,43 @@
 				"shipping": "Доставка и оплата",
 				"returns": "Возврат товара"
 			},
-			"contacts":{
+			"contacts": {
 				"title": "Контакты",
 				"tg": "Телеграм",
 				"vk": "Вконтакте"
 			}
-    },
+		},
 		"comparison": {
-      "umbrella": "Зонты",
-      "bags": "Сумки",
-      "outerwear": "Верхняя одежда",
-      "long-sleeves": "Лонг-сливы",
-      "headdress": "Головные уборы",
-      "hoodie": "Худи",
-      "business-souvenirs": "Бизнес-сувениры",
-      "promotional-souvenirs": "Промо-сувениры",
-      "pen": "Ручки",
-      "notebook": "Тетради",
-      "t-shirts": "Футболки",
-      "main_heading": "Сравнение"
-    },
+			"umbrella": "Зонты",
+			"bags": "Сумки",
+			"outerwear": "Верхняя одежда",
+			"long-sleeves": "Лонг-сливы",
+			"headdress": "Головные уборы",
+			"hoodie": "Худи",
+			"business-souvenirs": "Бизнес-сувениры",
+			"promotional-souvenirs": "Промо-сувениры",
+			"pen": "Ручки",
+			"notebook": "Тетради",
+			"t-shirts": "Футболки",
+			"main_heading": "Сравнение"
+		},
 		"breadcrumbs": {
-      "main": "Главная",
-      "comparison": "Сравнение",
-      "cart": "Корзина",
-      "favorites": "Избранное",
-      "catalog": "Каталог",
-      "profile": "Профиль",
-      "cloth": "Одежда",
-      "accessories": "Аксесуары",
-      "office": "Концелярия",
-      "souvenirs": "Сувениры",
-      "order": "Оформление заказа",
-      "personal_data_policy": "Политика обработки данных",
-      "privacy_policy": "Политика конфиденциальности",
-      "watched_products": "Просмотренные товары",
-      "collection_products": "Товары по коллекции"
-    },
+			"main": "Главная",
+			"comparison": "Сравнение",
+			"cart": "Корзина",
+			"favorites": "Избранное",
+			"catalog": "Каталог",
+			"profile": "Профиль",
+			"cloth": "Одежда",
+			"accessories": "Аксесуары",
+			"office": "Концелярия",
+			"souvenirs": "Сувениры",
+			"order": "Оформление заказа",
+			"personal_data_policy": "Политика обработки данных",
+			"privacy_policy": "Политика конфиденциальности",
+			"watched_products": "Просмотренные товары",
+			"collection_products": "Товары по коллекции"
+		},
 		"homePage": {
 			"hero": {
 				"title": "Заголовок хиро секции",
@@ -190,27 +268,51 @@
 			}
 		},
 		"product": {
-      "available": "Есть в наличии",
-      "not_available": "Нет в наличии",
-      "vendor_code": "Арт",
-      "size_table": "Таблица размеров",
-      "count": "Количество",
-      "to_cart": "В корзину",
-      "to_favorite": "В избранное",
-      "description": "Описание",
-      "characteristics": "Характеристики",
-      "collection_goods": "Товары колекции",
-      "watched": "Вы смотрели",
-      "add_to_favorites": "Добавить в избранное",
-      "add_to_comparison": "Добавить в избранное",
-      "quick_view": "Быстрый просмотр",
-      "total_in_cart": "Всего в корзине",
-      "more": "Больше информации о товаре",
-      "composition": "Состав",
-      "in_cart": "Добавлено",
-      "share": "Поделиться",
+			"available": "Есть в наличии",
+			"not_available": "Нет в наличии",
+			"vendor_code": "Арт",
+			"size_table": "Таблица размеров",
+			"count": "Количество",
+			"to_cart": "В корзину",
+			"to_favorite": "В избранное",
+			"description": "Описание",
+			"characteristics": "Характеристики",
+			"collection_goods": "Товары колекции",
+			"watched": "Вы смотрели",
+			"add_to_favorites": "Добавить в избранное",
+			"add_to_comparison": "Добавить в избранное",
+			"quick_view": "Быстрый просмотр",
+			"total_in_cart": "Всего в корзине",
+			"more": "Больше информации о товаре",
+			"in_cart": "Добавлено",
+			"share": "Поделиться",
 			"is_new": "Новинка",
-      "is_bestseller": "Хит продаж"
-    }
-  }
+			"is_bestseller": "Хит продаж",
+			"color": "Цвет",
+			"colors": {
+				"purpure": "Фиолетовый",
+				"orange": "оранжевый",
+				"yellow": "Жёлтый",
+				"black": "Чёрный",
+				"white": "Белый"
+			},
+			"composition": "Состав",
+			"compositions": {
+				"cotton": "Хлопок",
+				"synthetics": "Синтетика",
+				"polyester": "Полиэстер"
+			},
+			"size": "Размер"
+		},
+		"size_table": {
+			"head_circumference": "Обхват головы, см",
+			"size": "Размер",
+			"russian_size": "Российский размер",
+			"manufacturer_size": "Размер производителя",
+			"chest_circumference": "Обхват груди, в см",
+			"waist_circumference": "Обхват талии, в см",
+			"hip_circumference": "Обхват бедер, в см",
+			"title": "Таблица размеров"
+		}
+	}
 }

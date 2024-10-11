@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
-import { basePropsForMotion } from '@/constants/motion'
+import { basePropsForMotion } from '@/constants/motion';
 
 import Tooltip from '../Tooltip/Tooltip';
 
@@ -11,11 +11,17 @@ import tooltipStyles from '@/components/elements/Tooltip/index.module.scss';
 
 import { IProductItemActionBtnProps } from '@/types/elements';
 
-const ProductItemActionBtn = ({ text, callback, iconClass, marginBottom, spinner, withTooltip = true
+const ProductItemActionBtn = ({
+	text,
+	callback,
+	iconClass,
+	marginBottom,
+	spinner,
+	withTooltip = true,
 }: IProductItemActionBtnProps) => {
 	const [open, setOpen] = useState(false);
 	const [tooltipLeft, setTooltipLeft] = useState(0);
-	
+
 	const tooltipRef = useRef() as MutableRefObject<HTMLDivElement>;
 	const showTooltip = () => setOpen(true);
 	const hideTooltip = () => setOpen(false);
@@ -27,12 +33,12 @@ const ProductItemActionBtn = ({ text, callback, iconClass, marginBottom, spinner
 	}, [open, withTooltip]);
 
 	return (
-		<div 
-		// className={`${styles.actions}`}
-		style={{position: 'relative'}}
+		<div
+			// className={`${styles.actions}`}
+			style={{ position: 'relative' }}
 		>
 			<button
-				// className={`${styles.actions__btn} ${styles[iconClass]}`}
+				className={`${''} ${'' + iconClass}`}
 				onClick={callback}
 				onMouseEnter={showTooltip}
 				onMouseLeave={hideTooltip}

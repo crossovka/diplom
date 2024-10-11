@@ -5,3 +5,5 @@ export const selectBestsellerProductsLoading = (state: RootState) => state.goods
 
 export const selectNewProducts = (state: RootState) => state.goods.newProducts
 export const selectBestsellerProducts = (state: RootState) => state.goods.bestsellerProducts
+
+export const selectCurrentProduct = (state: RootState) => state.goods.currentProduct
