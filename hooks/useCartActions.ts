@@ -4,10 +4,20 @@ import { selectCurrentProduct } from '@/redux/slices/goods/selectors';
 
 import { useState } from 'react';
 
-export const useCartAction = () => {
+export const useCartActions = (isSizeTable = false) => {
 	const dispatch = useAppDispatch();
 	const currentProduct = useSelector(selectCurrentProduct)
 	const [selectedSize, setSelectedSize] = useState('')
+
+	// if (isSizeTable) {
+	// 	// addItemToCart(
+	// 	// 	product,
+	// 	// 	setAddToCartSpinner,
+	// 	// 	countFromCounter || 1,
+	// 	// 	selectedSize
+	// 	// )
+	// 	return
+	// }
 
 	return {
 		currentProduct,

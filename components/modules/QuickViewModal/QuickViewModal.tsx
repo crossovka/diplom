@@ -1,11 +1,10 @@
 import Link from 'next/link';
-
-import { useAppDispatch } from '@/redux/store';
-import { closeQuickViewModal } from '@/redux/slices/modals/slice';
+import { motion } from 'framer-motion';
 
 import { useLang } from '@/hooks/useLang';
-import { useCartAction } from '@/hooks/useCartActions';
-import { formatPrice, removeOverflowHiddenFromHtml } from '@/lib/utils/common';
+import { useCartActions } from '@/hooks/useCartActions';
+import { formatPrice } from '@/lib/utils/common';
+import { basePropsForMotion } from '@/constants/motion';
 
 import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn';
 import QuickViewModalSlider from './QuickViewModalSlider';
@@ -16,16 +15,11 @@ import ProductSizeTableBtn from '../ProductsListItem/ProductSizeTableBtn';
 import ProductSizesItem from '../ProductsListItem/ProductSizesItem';
 import AddToCartBtn from '../ProductsListItem/AddToCartBtn';
 
-const QuickViewModal = () => {
-	const dispatch = useAppDispatch();
+import { IQuickViewModal } from '@/types/modules';
 
+const QuickViewModal = ({ handleCloseModal }: IQuickViewModal) => {
 	const { translations } = useLang();
-	const { currentProduct, selectedSize, setSelectedSize } = useCartAction();
-
-	const handleCloseModal = () => {
-		removeOverflowHiddenFromHtml();
-		dispatch(closeQuickViewModal());
-	};
+	const { currentProduct, selectedSize, setSelectedSize } = useCartActions();
 
 	const addToCart = () => {
 		// setIsAddToFavorites(false);
@@ -33,7 +27,7 @@ const QuickViewModal = () => {
 	};
 
 	return (
-		<div className={'quick-view-modal'}>
+		<motion.div {...basePropsForMotion} className={'modal quick-view-modal'}>
 			<button
 				className={'quick-view-modal__close'}
 				onClick={handleCloseModal}
@@ -148,7 +142,7 @@ const QuickViewModal = () => {
 					</Link>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

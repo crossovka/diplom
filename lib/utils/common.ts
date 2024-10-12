@@ -1,4 +1,6 @@
 import { ICartItem } from "@/redux/slices/cart/types"
+import { closeSizeTableModal } from "@/redux/slices/modals/slice"
+import { Dispatch } from "@reduxjs/toolkit"
 
 export const getWindowWidth = () => {
 	const { innerWidth: windowWidth } =
@@ -64,3 +66,14 @@ export const shuffle = <T>(array: T[]) => {
 }
 
 export const getCartItemCountBySize = (cartItems: ICartItem[], currentSize: string) => cartItems.find((item) => item.size === currentSize.toLocaleLowerCase())?.count || 0
+
+
+// Передаю distpatch потому что useAppDispatch нельзя юзать не внутри React.FC
+export const closeSizeTableByCheck = (dispatch: Dispatch, isSizeTableModalOpen: boolean) => {
+	if (!isSizeTableModalOpen) {
+		removeOverflowHiddenFromHtml()
+	}
+
+	// Закрытие модального окна через dispatch
+	dispatch(closeSizeTableModal());
+};

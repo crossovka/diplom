@@ -1,19 +1,6 @@
 .quick-view-modal {
-	z-index: var(--ui-index-7);
 
-	position: fixed;
-	top: 50px;
-	left: 50%;
-
-	height: 570px;
-	width: 95%;
-	max-width: 850px;
-
-	background-color: #333A47;
-	padding: 24px;
-
-	transform: translateX(-50%);
-
+	// TODO тоже много где повторяется код такой
 	&__close {
 		// position: absolute;
 		top: 24px;

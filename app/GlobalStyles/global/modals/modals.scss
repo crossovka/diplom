@@ -1,9 +1,40 @@
 @import './searchModal.scss';
 @import './cartPopup.scss';
 @import './QuickViewModal.scss';
+@import './sizeTableModal.scss';
+
+.modal {
+	z-index: var(--ui-index-7);
+
+	position: fixed;
+	top: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 95%;
+	max-width: 850px;
+
+	background-color: #333A47;
+	padding: 24px;
+
+	&.search-modal {
+	}
+
+	&.quick-view-modal {
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&.size-table-modal {
+		z-index: var(--ui-index-9);
+
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
 
 // TODO сделать чтобы для всех элементов оканчивающися на - overlay было
-.search-overlay {
+.modal-overlay {
 	z-index: var(--ui-index-6);
 
 	position: fixed;
@@ -18,8 +49,16 @@
 	opacity: 0;
 	visibility: hidden;
 
-	&--active {
+	&.active {
 		opacity: 0.6;
 		visibility: visible;
+	}
+
+	// &--search {}
+
+	// &--quick-view {}
+
+	&--size-table {
+		z-index: var(--ui-index-8);
 	}
 }

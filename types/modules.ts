@@ -28,7 +28,15 @@ export interface ICatalogMenuButtonProps {
 }
 
 export interface ISearchModal {
-	handleCloseSearchModal: VoidFunction
+	handleCloseModal: VoidFunction
+}
+
+export interface IQuickViewModal {
+	handleCloseModal: VoidFunction
+}
+
+export interface ISizeTableModal {
+	handleCloseModal: VoidFunction
 }
 
 export interface IProductsListItemProps {

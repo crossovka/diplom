@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/redux/store';
 import { setSizeTableSizes } from '@/redux/slices/sizeTable/slice';
 import { openSizeTableModal } from '@/redux/slices/modals/slice';
-import { selectIsSizeTableModalOpen } from '@/redux/slices/modals/selectors';
+import { selectIsQuickViewModalOpen } from '@/redux/slices/modals/selectors';
 
 import { useLang } from '@/hooks/useLang';
 import { addOverflowHiddenToHtml } from '@/lib/utils/common';
@@ -13,7 +13,7 @@ import { ISelectedSizes } from '@/redux/slices/sizeTable/types';
 
 const ProductSizeTableBtn = ({ sizes, type, className }: ISelectedSizes) => {
 	const dispatch = useAppDispatch();
-	const IsSizeTableModalOpen = useSelector(selectIsSizeTableModalOpen);
+	const IsQuickViewModalOpen = useSelector(selectIsQuickViewModalOpen);
 
 	const { translations } = useLang();
 
@@ -21,7 +21,7 @@ const ProductSizeTableBtn = ({ sizes, type, className }: ISelectedSizes) => {
 		// setIsAddToFavorites(false);
 
 		// Если модалка не в модалке быстрого просмотра
-		if (!IsSizeTableModalOpen) {
+		if (!IsQuickViewModalOpen) {
 			addOverflowHiddenToHtml();
 		}
 

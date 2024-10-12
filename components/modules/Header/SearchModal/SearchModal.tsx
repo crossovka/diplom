@@ -11,7 +11,7 @@ import { basePropsForMotion } from '@/constants/motion'
 
 import { ISearchModal } from '@/types/modules';
 
-const SearchModal = ({handleCloseSearchModal} : ISearchModal) => {
+const SearchModal = ({ handleCloseModal } : ISearchModal) => {
 	const { translations } = useLang();
 	// const [, setSearchValue] = useState('');
 	// const [, startTransition] = useTransition();
@@ -35,12 +35,12 @@ const SearchModal = ({handleCloseSearchModal} : ISearchModal) => {
 
 	return (
 		// TODO для всех модалок атрибуты для доступности прописать
-		<motion.div {...basePropsForMotion} className='search-modal'>
+		<motion.div {...basePropsForMotion} className='modal search-modal'>
 			<button
 				className="search-modal__close"
 				// aria-label={translations.header.close}
 				// TODO Чёт типа того для кнопок, где картинка просто на фоне
-				onClick={handleCloseSearchModal}
+				onClick={handleCloseModal}
 			/>
 			<h3 className="search-modal__title">
 				{translations.header.search_products}
