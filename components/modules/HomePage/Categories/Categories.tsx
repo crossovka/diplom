@@ -46,7 +46,6 @@ const Categories: React.FC = () => {
 		},
 	];
 
-	console.log(loadingImageClass)
 	return (
 		<section className="categories">
 			<div className="categories__container">

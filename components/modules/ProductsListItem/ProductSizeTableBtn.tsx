@@ -7,7 +7,7 @@ import { openSizeTableModal } from '@/redux/slices/modals/slice';
 import { selectIsQuickViewModalOpen } from '@/redux/slices/modals/selectors';
 
 import { useLang } from '@/hooks/useLang';
-import { addOverflowHiddenToHtml } from '@/lib/utils/common';
+import { addOverflowHiddenToBody } from '@/lib/utils/modals';
 
 import { ISelectedSizes } from '@/redux/slices/sizeTable/types';
 
@@ -22,7 +22,7 @@ const ProductSizeTableBtn = ({ sizes, type, className }: ISelectedSizes) => {
 
 		// Если модалка не в модалке быстрого просмотра
 		if (!IsQuickViewModalOpen) {
-			addOverflowHiddenToHtml();
+			addOverflowHiddenToBody();
 		}
 
 		dispatch(setSizeTableSizes({ sizes, type }));

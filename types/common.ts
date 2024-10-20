@@ -1,3 +1,5 @@
+import { ISizes } from "@/redux/slices/sizeTable/types"
+
 export interface IProduct {
 	_id: string
 	type: string
@@ -19,8 +21,3 @@ export interface IProduct {
 }
 
 // const allowedCompositions = ['cotton', 'synthetics', 'polyester'];
-
-export interface IGetGeolocation {
-	lat: number
-	lon: number
-}

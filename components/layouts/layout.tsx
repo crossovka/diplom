@@ -2,16 +2,21 @@
 
 import { AnimatePresence } from 'framer-motion';
 
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/redux/store';
-import { closeQuickViewModal, closeSearchModal, closeSizeTableModal } from '@/redux/slices/modals/slice';
+import { useAppDispatch, useAppSelector } from '@/redux/store';
 import {
 	selectIsQuickViewModalOpen,
 	selectIsSearchModalOpen,
 	selectIsSizeTableModalOpen,
 } from '@/redux/slices/modals/selectors';
+import { selectIsAuthModalOpen } from '@/redux/slices/auth/selectors';
 
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import {
+	closeAuthModalWhenSomeModalOpened,
+	closeSizeTableByCheck,
+	handleCloseQuickViewModal,
+	handleCloseSearchModal,
+} from '@/lib/utils/modals';
 
 import { Header } from '../modules/Header/Header';
 import { MobileNavbar } from '../modules/MobileNavbar/MobileNavbar';
@@ -19,31 +24,29 @@ import { Footer } from '../modules/Footer';
 
 import SearchModal from '../modules/Header/SearchModal/SearchModal';
 import QuickViewModal from '../modules/QuickViewModal/QuickViewModal';
-import SizeTable from '../modules/SizeTable/SizeTable';
-import { closeSizeTableByCheck, removeOverflowHiddenFromHtml } from '@/lib/utils/common';
+import SizeTableModal from '../modules/SizeTableModal/SizeTableModal';
+import AuthModal from '../modules/AuthModal/AuthModal';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	const dispatch = useAppDispatch();
 
 	const isMedia991 = useMediaQuery(991);
 
-	const IsSearchModalOpen = useSelector(selectIsSearchModalOpen);
-	const IsQuickViewModalOpen = useSelector(selectIsQuickViewModalOpen);
-	const IsSizeTableModalOpen = useSelector(selectIsSizeTableModalOpen);
-
-	const handleCloseSearchModal = () => {
-		removeOverflowHiddenFromHtml()
-		dispatch(closeSearchModal());
-	};
-
-	const handleCloseQuickViewModal = () => {
-		removeOverflowHiddenFromHtml()
-		dispatch(closeQuickViewModal());
-	}
+	const IsSearchModalOpen = useAppSelector(selectIsSearchModalOpen);
+	const IsQuickViewModalOpen = useAppSelector(selectIsQuickViewModalOpen);
+	const IsSizeTableModalOpen = useAppSelector(selectIsSizeTableModalOpen);
+	const IsAuthModalOpen = useAppSelector(selectIsAuthModalOpen);
 
 	const handleCloseSizeTableModal = () => {
 		closeSizeTableByCheck(dispatch, IsSizeTableModalOpen);
 	};
+
+	const closeAuth = () =>
+		closeAuthModalWhenSomeModalOpened(
+			dispatch,
+			IsQuickViewModalOpen,
+			IsSizeTableModalOpen
+		);
 
 	return (
 		<>
@@ -52,30 +55,53 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
 			{isMedia991 && <MobileNavbar />}
 			{/* // TODO вынести в компонент Modals */}
 			{/* // TODO зет индексы по всему проекту нормально расставить, чтобы потом не было конфликтов */}
+			{/* <div className="modals"></div>
+			<div className="modals-overlays">
+				<ModalOverlay
+				isOpen={IsSearchModalOpen}
+				onClick={() => handleCloseSearchModal(dispatch)}
+				type="search"
+			/>
+			</div> */}
 			<AnimatePresence>
 				{IsSearchModalOpen && (
-					<SearchModal handleCloseModal={handleCloseSearchModal} />
+					<SearchModal
+						handleCloseModal={() => handleCloseSearchModal(dispatch)}
+					/>
 				)}
-				{IsQuickViewModalOpen && <QuickViewModal handleCloseModal={handleCloseQuickViewModal} />}
-				{IsSizeTableModalOpen && <SizeTable handleCloseModal={handleCloseSizeTableModal} />}
+				{IsQuickViewModalOpen && (
+					<QuickViewModal
+						handleCloseModal={() => handleCloseQuickViewModal(dispatch)}
+					/>
+				)}
+				{IsSizeTableModalOpen && (
+					<SizeTableModal handleCloseModal={handleCloseSizeTableModal} />
+				)}
+				{IsAuthModalOpen && <AuthModal />}
 			</AnimatePresence>
 			<div
 				className={`modal-overlay modal-overlay--search ${
 					IsSearchModalOpen ? 'active' : ''
 				}`}
-				onClick={handleCloseSearchModal}
+				onClick={() => handleCloseSearchModal(dispatch)}
 			/>
 			<div
 				className={`modal-overlay modal-overlay--quick-view ${
 					IsQuickViewModalOpen ? 'active' : ''
 				}`}
-				onClick={handleCloseQuickViewModal}
+				onClick={() => handleCloseQuickViewModal(dispatch)}
 			/>
 			<div
 				className={`modal-overlay modal-overlay--size-table ${
 					IsSizeTableModalOpen ? 'active' : ''
 				}`}
 				onClick={handleCloseSizeTableModal}
+			/>
+			<div
+				className={`modal-overlay modal-overlay--auth ${
+					IsAuthModalOpen ? 'active' : ''
+				}`}
+				onClick={closeAuth}
 			/>
 			<Footer />
 		</>

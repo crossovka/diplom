@@ -2,14 +2,15 @@
 @import './cartPopup.scss';
 @import './QuickViewModal.scss';
 @import './sizeTableModal.scss';
+@import './AuthModal.scss';
 
 .modal {
 	z-index: var(--ui-index-7);
 
 	position: fixed;
-	top: 50px;
+	top: 50%;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translate(-50%, -50%);
 
 	width: 95%;
 	max-width: 850px;
@@ -18,18 +19,34 @@
 	padding: 24px;
 
 	&.search-modal {
+		top: 50px;
+		transform: translate(-50%, 50px);
 	}
 
-	&.quick-view-modal {
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
+	&.quick-view-modal {}
 
 	&.size-table-modal {
 		z-index: var(--ui-index-9);
+	}
 
-		top: 50%;
-		transform: translate(-50%, -50%);
+	&.auth-modal {}
+
+	&__close {
+		position: absolute;
+		top: 24px;
+		right: 24px;
+
+		height: 24px;
+		width: 24px;
+
+		@media (max-width: em(590)) {
+			top: 12px;
+			right: 12px;
+		}
+
+		background-image: url(/img/icons/close.svg);
+		background-repeat: no-repeat;
+		background-position: center center;
 	}
 }
 
@@ -61,4 +78,6 @@
 	&--size-table {
 		z-index: var(--ui-index-8);
 	}
+
+	&--auth {}
 }

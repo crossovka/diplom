@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/redux/store';
+import { useAppDispatch, useAppSelector } from '@/redux/store';
 
 import { setLang } from '@/redux/slices/lang/slice';
 import { selectLang } from '@/redux/slices/lang/selectors';
@@ -15,51 +16,88 @@ import {
 	selectIsCatalogOpen,
 } from '@/redux/slices/menu/selectors';
 
-import { openSearchModal } from '@/redux/slices/modals/slice';
+import { selectIsAuth } from '@/redux/slices/auth/selectors';
+import {
+	selectUserLoginCheckLoading,
+} from '@/redux/slices/user/selectors';
 
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLang } from '@/hooks/useLang';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { handleOpenSearchModal, handleOpenAuthModal } from '@/lib/utils/modals';
+import { triggerLoginCheck } from '@/lib/utils/auth';
 
 import CartPopup from './CartPopup/CartPopup';
-// import { HeaderProfile } from './HeaderProfile';
+import HeaderProfile from './HeaderProfile';
 import Menu from './Menu/Menu';
 
 export const Header: React.FC = () => {
 	const dispatch = useAppDispatch();
 
-	const currentLang = useSelector(selectLang);
-	const isMenuOpen = useSelector(selectIsMenuOpen);
-	const isCatalogOpen = useSelector(selectIsCatalogOpen);
+	const { lang, translations } = useLang();
+	const isMedia991 = useMediaQuery(991);
+
+	const currentLang = useAppSelector(selectLang);
+	const isMenuOpen = useAppSelector(selectIsMenuOpen);
+	const isCatalogOpen = useAppSelector(selectIsCatalogOpen);
+	const isAuth = useAppSelector(selectIsAuth);
+	const isLoadingCheckLoading = useAppSelector(selectUserLoginCheckLoading);
 
 	const handleToggleMenu = () => {
 		dispatch(toggleMenu());
 		dispatch(closeCatalogMenu()); // Закрываем каталог при открытии меню
 	};
 
-	const { lang, translations } = useLang();
-
-	const isMedia991 = useMediaQuery(991);
-	// const isAuth = true;
-
 	// TODO : save to local storage и проверку эту тоже надо нет для сред где нет local storage?
 	const toggleLang = () => {
 		if (typeof window === 'undefined') return;
-		const newLang =
-			lang === AllowedLangs.EN ? AllowedLangs.RU : AllowedLangs.EN;
+
+		const newLang = lang === AllowedLangs.EN ? AllowedLangs.RU : AllowedLangs.EN;
 		dispatch(setLang(newLang));
 		localStorage.setItem('lang', JSON.stringify(newLang));
 	};
 
-	const handleOpenSearchModal = () => {
-		dispatch(openSearchModal());
-		// addOverflowHiddenToHtml()
-	};
+	useEffect(() => {
+		const auth = JSON.parse(localStorage.getItem('auth') as string);
+		// const cart = JSON.parse(localStorage.getItem('cart') as string);
+		// const favoritesFromLS = JSON.parse(
+		// 	localStorage.getItem('favorites') as string
+		// );
+		// const comparisonFromLS = JSON.parse(
+		// 	localStorage.getItem('comparison') as string
+		// );
+
+		triggerLoginCheck(dispatch);
+
+		if (auth?.accessToken) {
+			return;
+		}
+	}, []);
+
+	useEffect(() => {
+		if (isAuth) {
+			const auth = JSON.parse(localStorage.getItem('auth') as string);
+
+			// if (favoritesFromLS && Array.isArray(favoritesFromLS)) {
+			//   addProductsFromLSToFavorites({
+			//     jwt: auth.accessToken,
+			//     favoriteItems: favoritesFromLS,
+			//   })
+			// }
+
+			// if (comparisonFromLS && Array.isArray(comparisonFromLS)) {
+			//   addProductsFromLSToComparison({
+			//     jwt: auth.accessToken,
+			//     comparisonItems: comparisonFromLS,
+			//   })
+			// }
+		}
+	}, [isAuth]);
 
 	return (
 		<header
 			// TODO нормально что после шаблонной строки 2 пробела?
-			// header
+			// header__
 			className={`header ${isMenuOpen ? 'header--menu-open' : ''} ${
 				isCatalogOpen ? 'header--catalog-open' : ''
 			}`}
@@ -85,9 +123,10 @@ export const Header: React.FC = () => {
 						<button
 							// TODO aria-label потому что картинок нет нужно добавить будет для таких кнопок ?
 							className="header-controls__btn header-controls__btn--search"
-							onClick={handleOpenSearchModal}
+							onClick={() => handleOpenSearchModal(dispatch)}
 						/>
 					</li>
+					{/* Будет внутри MobileNavbar */}
 					{!isMedia991 && (
 						<>
 							<li className="header-controls__item">
@@ -107,9 +146,19 @@ export const Header: React.FC = () => {
 							</li>
 						</>
 					)}
-					{/* <li className="header-controls__item header-controls__item--profile">
-						{isAuth && <HeaderProfile />}
-					</li> */}
+					<li className="header-controls__item">
+						{isAuth ? (
+							<HeaderProfile />
+						) : // TODO isLoginCheckLoading?
+						isLoadingCheckLoading ? (
+							<FontAwesomeIcon icon={faSpinner} spin />
+						) : (
+							<button
+								className="header-controls__btn header-controls__btn--profile"
+								onClick={() => handleOpenAuthModal(dispatch)}
+							/>
+						)}
+					</li>
 				</ul>
 			</div>
 			<Menu />

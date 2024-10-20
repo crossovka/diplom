@@ -1,6 +1,11 @@
 import { getCartItemCountBySize } from '@/lib/utils/common';
 
 import { IProductCountBySizeProps } from '@/types/goods';
+export interface IProductCountBySizeProps {
+  products: ICartItem[]
+  size: string
+  withCartIcon?: boolean
+}
 
 const ProductCountBySize = ({
 	products,

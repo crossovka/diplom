@@ -13,7 +13,7 @@ import ProductCountBySize from '../ProductsListItem/ProductCountBySize';
 
 import { ISizeTableModal } from '@/types/modules';
 
-const SizeTable = ({ handleCloseModal }: ISizeTableModal) => {
+const SizeTableModal = ({ handleCloseModal }: ISizeTableModal) => {
 	const { translations } = useLang();
 
 	const { currentProduct, selectedSize, setSelectedSize } =
@@ -41,7 +41,7 @@ const SizeTable = ({ handleCloseModal }: ISizeTableModal) => {
 	};
 
 	// const addToCart = () => handleAddToCart(+(cartItemBySize?.count || 1))
-
+// TODO выносить такой код ибо массивы тоже перерендерятся
 	const hatsSizes = [
 		{
 			id: 1,
@@ -195,7 +195,7 @@ const SizeTable = ({ handleCloseModal }: ISizeTableModal) => {
 				isHatsType ? 'size-table--hats' : ''
 			}`}
 		>
-			<button className={`${'size-table__close'}`} onClick={handleCloseModal}>
+			<button className={`modal__close${'size-table__close'}`} onClick={handleCloseModal}>
 				close
 			</button>
 			<h2 className={'size-table__title'}>{translations.size_table.title}</h2>
@@ -257,13 +257,13 @@ const SizeTable = ({ handleCloseModal }: ISizeTableModal) => {
 										<td>{item.manufacturerSize}</td>
 										<td>{item.bust}</td>
 										<td>{item.waist}</td>
-										{/* <td>
-											<ProductCountBySize
+										<td>
+											{/* <ProductCountBySize
 												size={item.manufacturerSize}
 												currentCartItems={[]}
-											/>
+											/> */}
 											{item.hipGirth}
-										</td> */}
+										</td>
 									</tr>
 							  ))}
 					</tbody>
@@ -293,4 +293,4 @@ const SizeTable = ({ handleCloseModal }: ISizeTableModal) => {
 	);
 };
 
-export default SizeTable;
+export default SizeTableModal;

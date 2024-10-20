@@ -10,7 +10,8 @@ import { setCurrentProduct } from '@/redux/slices/goods/slice';
 import { useLang } from '@/hooks/useLang';
 import useImagePreloader from '@/hooks/useImagePreloader';
 
-import { addOverflowHiddenToHtml, formatPrice } from '@/lib/utils/common';
+import { formatPrice } from '@/lib/utils/common';
+import { addOverflowHiddenToBody } from '@/lib/utils/modals';
 
 import ProductLabel from './ProductLabel';
 import ProductAvailable from './ProductAvailable';
@@ -31,7 +32,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
 	const isTitleForNew = title === translations.homePage.newGoods.title;
 
 	const handleShowQuickViewModal = () => {
-		addOverflowHiddenToHtml()
+		addOverflowHiddenToBody();
 		dispatch(openQuickViewModal());
 		dispatch(setCurrentProduct(item));
 	};

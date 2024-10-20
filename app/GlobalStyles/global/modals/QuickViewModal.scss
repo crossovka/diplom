@@ -1,21 +1,4 @@
 .quick-view-modal {
 
-	// TODO тоже много где повторяется код такой
-	&__close {
-		// position: absolute;
-		top: 24px;
-		right: 24px;
-
-		height: 24px;
-		width: 24px;
-
-		@media (max-width: 590px) {
-			top: 12px;
-			right: 12px;
-		}
-
-		background-image: url(/img/icons/close.svg);
-		background-repeat: no-repeat;
-		background-position: center center;
-	}
+	&__close {}
 }

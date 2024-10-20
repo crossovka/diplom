@@ -37,7 +37,7 @@ const SearchModal = ({ handleCloseModal } : ISearchModal) => {
 		// TODO для всех модалок атрибуты для доступности прописать
 		<motion.div {...basePropsForMotion} className='modal search-modal'>
 			<button
-				className="search-modal__close"
+				className="modal__close search-modal__close"
 				// aria-label={translations.header.close}
 				// TODO Чёт типа того для кнопок, где картинка просто на фоне
 				onClick={handleCloseModal}

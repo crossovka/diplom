@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import toast from 'react-hot-toast';
 
 import api from '@/api/apiInstance';
-// import { handleShowSizeTable } from '@/lib/utils/common'
+// import { handleShowSizeTable } from '@/lib/utils/modals'
 import { IProduct, IProducts, ILoadOneProduct, ILoadProductsByFilter, ILoadWatchedProducts } from './types';
 
 // Асинхронные экшены для взаимодействия с API

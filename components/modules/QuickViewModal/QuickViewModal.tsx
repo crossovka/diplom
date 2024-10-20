@@ -29,7 +29,7 @@ const QuickViewModal = ({ handleCloseModal }: IQuickViewModal) => {
 	return (
 		<motion.div {...basePropsForMotion} className={'modal quick-view-modal'}>
 			<button
-				className={'quick-view-modal__close'}
+				className={'modal__close quick-view-modal__close'}
 				onClick={handleCloseModal}
 			/>
 			<div>
